@@ -5,15 +5,19 @@ import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 
 class App extends React.Component  {
-  state = {
-    shoes: [],
-    displayShoes: []
-  }
+  
+  constructor(){
+    super()
+    this.state = {
+      shoes: [],
+      displayShoes: []
 
+    }
+  }
   componentDidMount() {
-    shoeUrl = "" 
-    fetch(shoeUrl)
-    .then(r => r.json())
+    // shoeUrl = "http://localhost:3000/shoes" 
+    fetch("http://localhost:3000/shoes")
+    .then(res => res.json())
     .then(getShoes => {
       this.setState({
         shoes: getShoes,
@@ -25,6 +29,7 @@ class App extends React.Component  {
   render() {
     return (
       <div className="App">
+        <ShoeContainer displayShoes={this.state.displayShoes}/>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -40,6 +45,7 @@ class App extends React.Component  {
           <NavBar/>
           <ShoeContainer displayShoes={this.state.displayShoes}/>
         </header>
+
       </div>
     );
   }
