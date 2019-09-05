@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
+import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 
 class App extends React.Component  {
@@ -37,6 +38,7 @@ class App extends React.Component  {
           >
             Learn React
           </a>
+          <NavBar/>
           <ShoeContainer displayShoes={this.state.displayShoes}/>
         </header>
       </div>
