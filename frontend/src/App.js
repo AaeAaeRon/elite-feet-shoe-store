@@ -35,7 +35,6 @@ class App extends React.Component  {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn React
           </a>
           <ShoeContainer displayShoes={this.state.displayShoes}/>
         </header>
