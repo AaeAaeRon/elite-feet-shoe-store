@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
@@ -11,13 +10,13 @@ class App extends React.Component  {
   }
 
   componentDidMount() {
-    shoeUrl = "" 
+    let shoeUrl = "http://localhost:3000/shoes" 
     fetch(shoeUrl)
     .then(r => r.json())
-    .then(getShoes => {
+    .then(shoes => {
       this.setState({
-        shoes: getShoes,
-        displayShoes: getShoes
+        shoes: shoes,
+        displayShoes: shoes
       })
     })
   }
@@ -26,20 +25,9 @@ class App extends React.Component  {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
-          <NavBar/>
-          <ShoeContainer displayShoes={this.state.displayShoes}/>
+          {/* <NavBar/> */}
         </header>
+        <ShoeContainer displayShoes={this.state.displayShoes}/>
       </div>
     );
   }
