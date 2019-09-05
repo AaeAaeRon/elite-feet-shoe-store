@@ -4,15 +4,19 @@ import './App.css';
 import ShoeContainer from './components/ShoeContainer'
 
 class App extends React.Component  {
-  state = {
-    shoes: [],
-    displayShoes: []
-  }
+  
+  constructor(){
+    super()
+    this.state = {
+      shoes: [],
+      displayShoes: []
 
+    }
+  }
   componentDidMount() {
-    shoeUrl = "" 
-    fetch(shoeUrl)
-    .then(r => r.json())
+    // shoeUrl = "http://localhost:3000/shoes" 
+    fetch("http://localhost:3000/shoes")
+    .then(res => res.json())
     .then(getShoes => {
       this.setState({
         shoes: getShoes,
@@ -24,20 +28,7 @@ class App extends React.Component  {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-          </a>
-          <ShoeContainer displayShoes={this.state.displayShoes}/>
-        </header>
+        <ShoeContainer displayShoes={this.state.displayShoes}/>
       </div>
     );
   }
