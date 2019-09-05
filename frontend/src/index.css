@@ -28,12 +28,27 @@ code {
 
 .dropdown-shoe {
   float: left;
+  overflow: hidden;
+}
+
+.dropdown-shoe .dropbutton {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
 }
 
 .align2 {
+  float: right;
   text-align: right;
   font-size: 16px;
   color: white;
   padding: 14px 16px;
   text-decoration: none;
 }
+
+
