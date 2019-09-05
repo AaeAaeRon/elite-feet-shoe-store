@@ -1,4 +1,4 @@
 class Shoe < ApplicationRecord
     has_many :selections
-    has_many :orders, through: selection 
+    has_many :orders, through: :selections
 end

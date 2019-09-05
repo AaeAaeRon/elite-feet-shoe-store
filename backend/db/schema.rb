@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 2019_09_05_163203) do
   enable_extension "plpgsql"
 
   create_table "orders", force: :cascade do |t|
-    t.integer "userId"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "selections", force: :cascade do |t|
-    t.integer "shoeId"
-    t.integer "orderId"
+    t.integer "shoe_id"
+    t.integer "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
