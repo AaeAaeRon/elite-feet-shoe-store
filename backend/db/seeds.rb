@@ -28,7 +28,7 @@ s8 = Shoe.create(name: "Nike Free RN Flyknit 3.0", img_url: "https://c.static-ni
 
 
 o1 = Order.create(user_id: u1.id)
-# byebug
+
 Selection.create(shoe_id: s1.id, order_id: o1.id)
 
 
