@@ -27,7 +27,9 @@ class App extends React.Component  {
   
   render() {
     return (
-      <div className="App">
+      <div>
+        <NavBar/>
+
         <ShoeContainer displayShoes={this.state.displayShoes}/>
         <header className="App-header">
           {/* <NavBar/> */}
