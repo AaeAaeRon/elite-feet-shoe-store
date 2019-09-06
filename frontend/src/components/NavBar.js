@@ -1,33 +1,43 @@
 import React from 'react'
+import {Nav, Navbar} from 'react-bootstrap'
+import styled from 'styled-components'
+import Login from './LogIn'
+
 
 export default class NavBar extends React.Component {
-    render() {
+
+    render(){
+        const Styles = styled.div`
+        .navbar {
+            background-color: #222
+        
+         }
+         .navbar-brand, .navbar-nav .nav-link{
+             color: #bbb; 
+
+        %:hover {
+            color: white
+        }
+         }
+    `
         return(
             <div>
-                <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-                        <a class="navbar-brand" href="#">Navbar</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                <Styles>
+                    <Navbar expand="lg">
+                        <Navbar.Brand href="/">Shoe Store</Navbar.Brand>
+                        <Navbar.Brand onClick={<Login />} href="/login">Login</Navbar.Brand>
+                        <Navbar.Toggle aria-controls ="basic-navbar-nav"/>
+                        <Navbar.Collapse id="basic-navbar-nav">
+                            <Nav.Item> Testing</Nav.Item>
+                            <Nav.Item>Stuff</Nav.Item>
 
+                        </Navbar.Collapse>
+                    </Navbar>
+                </Styles>
+                
             </div>
         )
+        
+    
     }
 }
