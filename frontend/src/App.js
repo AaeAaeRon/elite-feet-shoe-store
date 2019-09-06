@@ -3,8 +3,8 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {Container} from 'react-bootstrap'
-import {LogIn} from './components/LogIn'
+// import {Container} from 'react-bootstrap'
+// import {LogIn} from './components/LogIn'
 // import {NoMatch} from './components/NoMatch'
 
 
