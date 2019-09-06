@@ -45,8 +45,12 @@ class App extends React.Component  {
 
         <ShoeContainer displayShoes={this.state.displayShoes}/>
         <header className="App-header">
-          {/* <NavBar/> */}
+          <NavBar/>
         </header>
+
+        <ShoeContainer displayShoes={this.state.displayShoes}/>
+
+        
       </div>
     );
   }
