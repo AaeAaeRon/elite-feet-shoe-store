@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -30,4 +30,50 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+  margin: 0% 5% 0% 5%;
+  text-align: center;
 }
+
+body {
+  background: radial-gradient(#e5e5e5, #ffff, #e5e5e5)
+}
+
+.card {
+  width: 20rem;
+  margin: 2rem
+
+}
+.card-body:hover{
+
+  box-shadow: 5px 10px 20px 1px rgba(red, green, blue, alpha) !important
+}
+
+.card-body{
+  padding: 3rem 0 !important;
+
+}
+
+.card-text{
+  font-size: .9rem;
+  padding: 0.4rem
+
+}
+
+.container-fluid-row{
+  padding-top: 6rem
+}
+
+.card-img-top{
+  transform:scale(1)
+}
+
+.card-img-top:hover{
+  transform:scale(1.8)
+}
+
+
+
+
