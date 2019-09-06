@@ -4,6 +4,11 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Container} from 'react-bootstrap'
+import {LogIn} from './components/LogIn'
+// import {NoMatch} from './components/NoMatch'
+
 
 class App extends React.Component  {
   
@@ -30,6 +35,14 @@ class App extends React.Component  {
   render() {
     return (
       <div>
+        <Router>
+          <Switch>
+            {/* <Route exact path='/' component ={Home} /> */}
+            {/* <Route path='/login' component={LogIn} /> */}
+            {/* <Route component ={NoMatch}/> */}
+          </Switch>
+
+      </Router>
         <NavBar/>
 
         <ShoeContainer displayShoes={this.state.displayShoes}/>
