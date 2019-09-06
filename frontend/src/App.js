@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
@@ -23,10 +22,10 @@ class App extends React.Component  {
     // shoeUrl = "http://localhost:3000/shoes" 
     fetch("http://localhost:3000/shoes")
     .then(res => res.json())
-    .then(getShoes => {
+    .then(shoes => {
       this.setState({
-        shoes: getShoes,
-        displayShoes: getShoes
+        shoes: shoes,
+        displayShoes: shoes
       })
     })
   }
@@ -45,6 +44,13 @@ class App extends React.Component  {
         <NavBar/>
 
         <ShoeContainer displayShoes={this.state.displayShoes}/>
+        <header className="App-header">
+          <NavBar/>
+        </header>
+
+        <ShoeContainer displayShoes={this.state.displayShoes}/>
+
+        
       </div>
     );
   }
