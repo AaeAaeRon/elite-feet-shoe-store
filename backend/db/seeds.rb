@@ -13,7 +13,7 @@ Order.destroy_all
 
 
 
-u1 =User.create(username: "Jack", name: "Jackie Chan" )
+u1 =User.create(username: "Jack", password: "pwd" )
 
 s1 = Shoe.create(name: "Zoom Freak 1", img_url: "https://c.static-nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/assphgg2fhsggu5t09cm/zoom-freak-1-basketball-shoe-tmk8Hw.jpg", price: 120, category: "Basketball")
 s2 = Shoe.create(name: "Kyrie 5 Bandulu", img_url: "https://c.static-nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/vhuazzp0een2du6zw4ww/kyrie-5-x-bandulu-basketball-shoe-tQ0QXX.jpg", price: 130, category: "Basketball")
@@ -28,7 +28,7 @@ s8 = Shoe.create(name: "Nike Free RN Flyknit 3.0", img_url: "https://c.static-ni
 
 
 o1 = Order.create(user_id: u1.id)
-# byebug
+
 Selection.create(shoe_id: s1.id, order_id: o1.id)
 
 
