@@ -24,7 +24,8 @@ export default class NavBar extends React.Component {
             <div>
                 <Styles>
                     <Navbar expand="lg">
-                        <Navbar.Brand href="/">Shoe Store</Navbar.Brand>
+                        <Navbar.Brand href="/">Shoe Store</Navbar.Brand> 
+                        <Navbar.Brand href="/">Favorites</Navbar.Brand> 
                         <Navbar.Brand onClick={<Login />} href="/login">Login</Navbar.Brand>
                         <Navbar.Toggle aria-controls ="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">

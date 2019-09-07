@@ -4,7 +4,7 @@ export default class ShoeCard extends React.Component {
     render() {
         return(
             // <div className="card">
-            <div className="col-lg-4"> 
+            <div className="col-lg-4" onClick={() => this.props.allFavoriteShoes(this.props.all)}> 
             <div className="card text-center">
                 <img className="card-img-top" src={this.props.all.img_url} alt="shoes">
 

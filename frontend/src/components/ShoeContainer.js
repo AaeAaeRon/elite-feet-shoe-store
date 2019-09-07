@@ -1,5 +1,5 @@
 import React from 'react'
-import ShoeCard from './ShoeCard'
+import ShoeCard from './ShoeCard' 
 
 // import './App.css';
 // import {Container, Row, Col} from 'react-bootstrap'
@@ -7,14 +7,14 @@ import ShoeCard from './ShoeCard'
 export default class ShoeContainer extends React.Component {
     render() {
         return(
-        <div class="container">
+        <div className="container">
             {/* <div className="container-fluid d-flex justify-content-center"> */}
             {/* <div className="col-xl-12 col-lg-12 col-md-12 col-xs-12"> */}
 
 
             <div className="row">
                         
-                {this.props.displayShoes.map(all => <ShoeCard all={all}/>)}
+                {this.props.displayShoes.map(all => <ShoeCard all={all} allFavoriteShoes={this.props.allFavoriteShoes}/>)}
         </div>
         {/* </div> */}
     {/* </div> */}

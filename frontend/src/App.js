@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
+import FavShoes from './components/FavShoes'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 // import {LogIn} from './components/LogIn'
@@ -14,7 +15,10 @@ class App extends React.Component  {
     super()
     this.state = {
       shoes: [],
-      displayShoes: []
+      displayShoes: [],
+      everyShoes: [],
+      favoriteShoes: [],
+      aShoe: []
 
     }
   }
@@ -29,6 +33,13 @@ class App extends React.Component  {
       })
     })
   }
+
+  allFavoriteShoes = all => {
+    this.setState({
+      everyShoes: [...this.state.everyShoes,all], 
+      favoriteShoes: [...this.state.everyShoes,all]
+    })
+  }
   
   render() {
     return (
@@ -41,14 +52,13 @@ class App extends React.Component  {
           </Switch>
 
       </Router>
-        <NavBar/>
-
-        <ShoeContainer displayShoes={this.state.displayShoes}/>
+ 
         <header className="App-header">
           <NavBar/>
         </header>
 
-        <ShoeContainer displayShoes={this.state.displayShoes}/>
+        <ShoeContainer displayShoes={this.state.displayShoes} allFavoriteShoes={this.allFavoriteShoes}/>
+        <FavShoes favoriteShoes={this.state.favoriteShoes}/>
 
         
       </div>
