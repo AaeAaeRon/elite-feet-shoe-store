@@ -18,7 +18,6 @@ class App extends React.Component  {
       displayShoes: [],
       everyShoes: [],
       favoriteShoes: [],
-      aShoe: []
 
     }
   }

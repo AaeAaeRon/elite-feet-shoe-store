@@ -4,8 +4,10 @@ import ShoeCard from './ShoeCard'
 export default class FavShoes extends React.Component {
     render() {
         return(
-            <div>
-                {this.props.favoriteShoes.map(all => <ShoeCard all={all}/>)}
+            <div className="container">
+                <div className="row">
+                    {this.props.favoriteShoes.map(all => <ShoeCard all={all}/>)}                     
+                </div>
             </div>
         )
     }
