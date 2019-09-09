@@ -14,7 +14,7 @@ export default class ShoeContainer extends React.Component {
 
             <div className="row">
                         
-                {this.props.displayShoes.map(all => <ShoeCard all={all} allFavoriteShoes={this.props.allFavoriteShoes}/>)}
+                {this.props.displayShoes.map(all => <ShoeCard all={all} addFavoriteShoes={this.props.addFavoriteShoes}/>)}
         </div>
         {/* </div> */}
     {/* </div> */}

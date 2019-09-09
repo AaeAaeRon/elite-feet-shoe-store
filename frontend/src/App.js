@@ -18,6 +18,7 @@ class App extends React.Component  {
       displayShoes: [],
       everyShoes: [],
       favoriteShoes: [],
+      delShoes: []
 
     }
   }
@@ -33,10 +34,17 @@ class App extends React.Component  {
     })
   }
 
-  allFavoriteShoes = all => {
+  addFavoriteShoes = all => {
     this.setState({
       everyShoes: [...this.state.everyShoes,all], 
       favoriteShoes: [...this.state.everyShoes,all]
+    })
+  }
+
+  dltFavoriteShoes = all => {
+    // let dlt = this.state.everyShoes.filter(s => s !== all)
+    this.setState({
+      everyShoes: this.state.everyShoes.filter(s => s !== all)
     })
   }
   
@@ -56,8 +64,8 @@ class App extends React.Component  {
           <NavBar/>
         </header>
 
-        <ShoeContainer displayShoes={this.state.displayShoes} allFavoriteShoes={this.allFavoriteShoes}/>
-        <FavShoes favoriteShoes={this.state.favoriteShoes}/>
+        <ShoeContainer displayShoes={this.state.displayShoes} addFavoriteShoes={this.addFavoriteShoes}/>
+        <FavShoes favoriteShoes={this.state.favoriteShoes} dltFavoriteShoes={this.dltFavoriteShoes}/>
 
         
       </div>
