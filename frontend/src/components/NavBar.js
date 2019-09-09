@@ -99,12 +99,7 @@ export default class NavBar extends React.Component {
                     </Navbar>
                 </Styles>
                 
-                {/* <SignUp /> */}
-
-                {this.state.display
-                    ? <Login />
-                    : null
-                }
+               
                 
                     <Navbar.Brand  href="/">Home</Navbar.Brand>
                     <Navbar.Brand  href="/login">Login</Navbar.Brand>
@@ -116,8 +111,8 @@ export default class NavBar extends React.Component {
                         <Nav.Item> Testing</Nav.Item>
                         <Nav.Item>Stuff</Nav.Item>
                     </Navbar.Collapse>
-                    </Navbar>
-                </Styles>
+                    
+                
                 
 
             </div>
