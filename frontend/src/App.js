@@ -53,10 +53,11 @@ class App extends React.Component  {
 
      
           <Route exact path='/' component={Home}/>
-          <Route path='/shoes' render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavorite={this.addFavorite}/>}/>
-          <Route path='/signup' render={()=> <SignUp/>}/>
-          <Route path= '/favorites' render={() => 
+          <Route path='/shoes' render={(routerProps) => <ShoeContainer {...routerProps} displayShoes={this.state.displayShoes} addFavorite={this.addFavorite}/>}/>
+          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps} />}/>
+          <Route path= '/favorites' render={(routerProps) => 
             <Favorite 
+              {...routerProps} 
               favorites ={this.state.favorites}
               addFavorite={this.addFavorite}/>}/>
 

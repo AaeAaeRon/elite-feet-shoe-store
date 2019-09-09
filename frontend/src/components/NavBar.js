@@ -1,14 +1,6 @@
 import React from 'react'
 import {Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
-
-import Login from './LogIn'
-
-import Home from './Home'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ShoeContainer from './ShoeContainer'
-import SignUp from './SignUp'
-import Favorite from './Favorite'
 import {Link} from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaAlignRight } from "react-icons/fa";
