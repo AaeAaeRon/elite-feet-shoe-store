@@ -19,7 +19,6 @@ export default class ShoeCard extends React.Component {
 
 
 
-
                 </div>
 
 

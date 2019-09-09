@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-import { BrowserRouter, Route} from 'react-router-dom'
+
+import {  BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 // import {Login} from './components/Login'
 import Home from './components/Home'
@@ -10,8 +11,6 @@ import SignUp from './components/SignUp';
 // import NoMatch from './components/NoMatch'
 
 import Favorite from './components/Favorite'
-
-
 
 
 
@@ -66,6 +65,8 @@ class App extends React.Component  {
               addFavorite={this.addFavorite}/>}/>
 
         
+
+        <ShoeContainer displayShoes={this.state.displayShoes}/>
       </div>
       </BrowserRouter>
         
