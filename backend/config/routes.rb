@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users
   resources :selections
   resources :orders
+  post'/login', to: 'auth#create'
 end

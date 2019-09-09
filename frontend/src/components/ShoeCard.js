@@ -11,9 +11,9 @@ export default class ShoeCard extends React.Component {
                 </img>
                 <div className="card-body text-dark">
                     <h4 className="card-title">{this.props.all.name}</h4>
+
                     <p className="card-text text-secondary"> Category: {this.props.all.category}</p>
                     <p className="card-text text-secondary"> Price: ${this.props.all.price}</p>
-
 
                 </div>
 
