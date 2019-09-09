@@ -3,14 +3,16 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 
-import {  BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {  BrowserRouter,Route} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
-// import {Login} from './components/Login'
+import Login from './components/LogIn'
 import Home from './components/Home'
 import SignUp from './components/SignUp';
 // import NoMatch from './components/NoMatch'
 
 import Favorite from './components/Favorite'
+import Cart from './components/Cart'
+import Footer from './components/Footer'
 
 
 
@@ -55,20 +57,29 @@ class App extends React.Component  {
       <div>
         <NavBar/>
 
-     
+     <nav className="nav-header">
           <Route exact path='/' component={Home}/>
           <Route path='/shoes' render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavorite={this.addFavorite}/>}/>
           <Route path='/signup' render={()=> <SignUp/>}/>
+          <Route path='/login' render={()=> <Login/>}/>
+
           <Route path= '/favorites' render={() => 
             <Favorite 
               favorites ={this.state.favorites}
               addFavorite={this.addFavorite}/>}/>
 
-        
+          <Route path='/cart' render={()=> <Cart/>}/>
 
-        <ShoeContainer displayShoes={this.state.displayShoes}/>
+          </nav>
+
+        
       </div>
+      <Footer/>
+
+
       </BrowserRouter>
+
+      
         
     );
   }

@@ -2,6 +2,8 @@ import React from 'react'
 // import NavBar from './NavBar'
 import images from './images'
 import {Gallery, GalleryImage} from 'react-gesture-gallery'
+import Footer from './Footer'
+
 
  
 const Home = () => {
@@ -19,6 +21,11 @@ const Home = () => {
             ))}
         
         </Gallery>
+
+        
+
+
+
     )
 }
 
