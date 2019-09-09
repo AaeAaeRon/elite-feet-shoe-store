@@ -39,7 +39,7 @@ class App extends React.Component  {
   render() {
     return (
 
-      <BrowserRouter>
+      <Router>
       <div>
         <NavBar/>
 
@@ -52,7 +52,7 @@ class App extends React.Component  {
 
         <ShoeContainer displayShoes={this.state.displayShoes}/>
       </div>
-      </BrowserRouter>
+      </Router>
         
     );
   }
