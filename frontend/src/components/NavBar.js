@@ -1,8 +1,12 @@
 import React from 'react'
-import {Nav, Navbar} from 'react-bootstrap'
+import {Nav, Navbar, NavbarBrand, Container, NavbarHeader} from 'react-bootstrap'
 import styled from 'styled-components'
 import Login from './LogIn'
-import SignUp from "./SignUp";
+
+import Home from './Home'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ShoeContainer from './ShoeContainer'
+import SignUp from './SignUp'
 
 
 export default class NavBar extends React.Component {
@@ -36,14 +40,23 @@ export default class NavBar extends React.Component {
         return(
             <div>
                 <Styles>
-                    <Navbar expand="lg">
+                    <Navbar expand="lg" fixed="top">
+                    <Navbar.Brand onClick={<Home />} href="/home">Home</Navbar.Brand>
+                    <Navbar.Brand onClick={<Login />} href="/login">Login</Navbar.Brand>
+                    <Navbar.Brand onClick={<ShoeContainer />} href="/shoes">Shoes</Navbar.Brand>
+                    <Navbar.Brand onClick={<SignUp />} href="/signup">Sign Up</Navbar.Brand>
+
+
+
+
                         <Navbar.Brand href="/">Shoe Store</Navbar.Brand>
+
                         <Navbar.Brand onClick={this.openLogin} href="/login">Login</Navbar.Brand>
+
                         <Navbar.Toggle aria-controls ="basic-navbar-nav"/>
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav.Item> Testing</Nav.Item>
                             <Nav.Item>Stuff</Nav.Item>
-
                         </Navbar.Collapse>
                     </Navbar>
                 </Styles>

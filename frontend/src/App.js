@@ -2,10 +2,14 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+
+import {  BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
-// import {LogIn} from './components/LogIn'
-// import {NoMatch} from './components/NoMatch'
+// import {Login} from './components/Login'
+import Home from './components/Home'
+import SignUp from './components/SignUp';
+// import NoMatch from './components/NoMatch'
+
 
 
 class App extends React.Component  {
@@ -29,24 +33,31 @@ class App extends React.Component  {
       })
     })
   }
+
+
   
   render() {
     return (
-      <div>
-        <Router>
-          <Switch>
-            {/* <Route exact path='/' component ={Home} /> */}
-            {/* <Route path='/login' component={LogIn} /> */}
-            {/* <Route component ={NoMatch}/> */}
-          </Switch>
 
-      </Router>
+      <BrowserRouter>
+      <div>
         <NavBar/>
+
+     
+          <Route path='/' component={Home}/>
+          <Route path='/shoes' render={() => <ShoeContainer displayShoes={this.state.displayShoes}/>}/>
+          <Route path='/signup' render={()=> <SignUp/>}/>
+
+        
+
         <ShoeContainer displayShoes={this.state.displayShoes}/>
       </div>
+      </BrowserRouter>
+        
     );
   }
   
 }
 
 export default App;
+{/* <ShoeContainer displayShoes={this.state.displayShoes}/> */}

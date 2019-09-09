@@ -8,11 +8,15 @@ export default class ShoeContainer extends React.Component {
 
     render() {
         return(
-            <div className="container">
-                <div className="row">        
-                    {this.props.displayShoes.map(all => <ShoeCard all={all}/>)}
-                </div>
-            </div>       
+        <div class="container-fluid mt-4">
+
+
+            <div className="row justify-content-center">
+                        
+                {this.props.displayShoes.map(all => <ShoeCard all={all}/>)}
+        </div>
+    </div>
+            
         )
     }
 }   
