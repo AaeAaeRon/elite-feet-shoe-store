@@ -13,7 +13,7 @@ export default class ShoeContainer extends React.Component {
 
             <div className="row justify-content-center">
                         
-                {this.props.displayShoes.map(all => <ShoeCard all={all}/>)}
+                {this.props.displayShoes.map(shoe => (<ShoeCard shoe={shoe} key={shoe.id} addFavorite={this.props.addFavorite}/> )) }
         </div>
     </div>
             
