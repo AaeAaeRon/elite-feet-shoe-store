@@ -9,6 +9,8 @@ import Home from './components/Home'
 import SignUp from './components/SignUp';
 // import NoMatch from './components/NoMatch'
 
+import Favorite from './components/Favorite'
+
 
 
 
@@ -19,7 +21,9 @@ class App extends React.Component  {
     super()
     this.state = {
       shoes: [],
-      displayShoes: []
+      displayShoes: [],
+      favorites: [],
+      cart: []
 
     }
   }
@@ -35,6 +39,14 @@ class App extends React.Component  {
     })
   }
 
+  addFavorite = (favorite) => {
+    this.setState({
+      favorites: [...this.state.favorites, favorite],
+    })
+    // debugger
+ 
+
+  }
 
   
   render() {
@@ -45,9 +57,13 @@ class App extends React.Component  {
         <NavBar/>
 
      
-          <Route path='/' component={Home}/>
-          <Route path='/shoes' render={() => <ShoeContainer displayShoes={this.state.displayShoes}/>}/>
+          <Route exact path='/' component={Home}/>
+          <Route path='/shoes' render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavorite={this.addFavorite}/>}/>
           <Route path='/signup' render={()=> <SignUp/>}/>
+          <Route path= '/favorites' render={() => 
+            <Favorite 
+              favorites ={this.state.favorites}
+              addFavorite={this.addFavorite}/>}/>
 
         
       </div>

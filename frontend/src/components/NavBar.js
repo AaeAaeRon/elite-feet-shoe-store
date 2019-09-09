@@ -6,6 +6,8 @@ import Home from './Home'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ShoeContainer from './ShoeContainer'
 import SignUp from './SignUp'
+import Favorite from './Favorite'
+import {Link} from 'react-router-dom'
 
 
 
@@ -29,10 +31,16 @@ export default class NavBar extends React.Component {
             <div>
                 <Styles>
                     <Navbar expand="lg" fixed="top">
-                    <Navbar.Brand onClick={<Home />} href="/home">Home</Navbar.Brand>
-                    <Navbar.Brand onClick={<Login />} href="/login">Login</Navbar.Brand>
-                    <Navbar.Brand onClick={<ShoeContainer />} href="/shoes">Shoes</Navbar.Brand>
-                    <Navbar.Brand onClick={<SignUp />} href="/signup">Sign Up</Navbar.Brand>
+                    <Navbar.Brand  href="/">Home</Navbar.Brand>
+                    <Navbar.Brand href="/login">Login</Navbar.Brand>
+                    <Navbar.Brand  href="/shoes">Shoes</Navbar.Brand>
+                    <Navbar.Brand ref="/signup">Sign Up</Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to="/favorites">
+                            Favorites
+                        </Link>
+                    </Navbar.Brand>
+
 
 
 
