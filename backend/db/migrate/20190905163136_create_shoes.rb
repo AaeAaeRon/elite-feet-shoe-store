@@ -3,6 +3,8 @@ class CreateShoes < ActiveRecord::Migration[6.0]
     create_table :shoes do |t|
       t.string :name
       t.string :img_url
+      t.string :description
+      t.integer :quantity
       t.integer :price
       t.string :category
 

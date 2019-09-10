@@ -3,11 +3,16 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 
-import {  BrowserRouter, Router, Route, Switch} from 'react-router-dom'
+// import {BrowserRouter}
+import {  BrowserRouter,Route} from 'react-router-dom'
+// import {Container} from 'react-bootstrap'
+import LogIn from './components/LogIn'
+
 import Home from './components/Home'
 import SignUp from './components/SignUp';
 
 import Favorite from './components/Favorite'
+
 
 
 
@@ -43,27 +48,78 @@ class App extends React.Component  {
 
   }
 
+
+  addCart = (cart) => {
+    this.setState({
+      cart: [...this.state.cart, cart]
+    })
+
+  }
+
+  deletefromFavorite = (favorite) => {
+    this.setState({
+      favorites:  this.state.favorites.filter(f => f != favorite)
+
+    })
+
+  }
+
+  deletefromCart = (cart) => {
+    this.setState({
+      cart: this.state.cart.filter(c=>c !=cart)
+    })
+
+  }
   
   render() {
     return (
 
       <BrowserRouter>
-      <div>
+
+        <div>
         <NavBar/>
+          {/* <Route exact path='/' component={Home}/> */}
+          {/* // <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/> */}
+          {/* <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/> */}
+          {/* <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/> */}
+
+
+
 
      
           <Route exact path='/' component={Home}/>
-          <Route path='/shoes' render={(routerProps) => <ShoeContainer {...routerProps} displayShoes={this.state.displayShoes} addFavorite={this.addFavorite}/>}/>
-          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps} />}/>
-          <Route path= '/favorites' render={(routerProps) => 
+
+          <Route path='/shoes' render={(routerProps) => 
+            <ShoeContainer 
+              displayShoes={this.state.displayShoes} 
+              addFavorite={this.addFavorite}
+              addCart={this.addCart}
+              {...routerProps}/>}/>
+          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
+          <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
+
+          <Route path= '/favorites' render={() => 
+
             <Favorite 
               {...routerProps} 
               favorites ={this.state.favorites}
-              addFavorite={this.addFavorite}/>}/>
+
+              addFavorite={this.addFavorite}
+              addCart={this.addCart}
+              deletefromFavorite={this.deletefromFavorite}/>}/>
+
+          <Route path='/cart' render={()=> 
+            <Cart
+            cart={this.state.cart}
+            addCart={this.addCart}
+            deletefromCart={this.deletefromCart}/>}/>
+
+          </nav>
+
 
         
 
-        <ShoeContainer displayShoes={this.state.displayShoes}/>
+       
       </div>
       </BrowserRouter>
         

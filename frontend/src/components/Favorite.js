@@ -1,5 +1,6 @@
 import React from 'react'
 import ShoeCard from './ShoeCard'
+import FavoriteCard from './FavoriteCard'
 
 const Favorite = (props) => {
 console.log(props)
@@ -8,7 +9,7 @@ console.log(props)
 
 
             <div className="row justify-content-center">
-            {props.favorites.map(favorite => <ShoeCard shoe = {favorite}/>)}
+            {props.favorites.map(favorite => <FavoriteCard shoe = {favorite} addCart={props.addCart} deletefromFavorite={props.deletefromFavorite}/>)}
         </div>
         </div>
     )

@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_09_06_162048) do
   create_table "shoes", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
+    t.string "description"
+    t.integer "quantity"
     t.integer "price"
     t.string "category"
     t.datetime "created_at", precision: 6, null: false
