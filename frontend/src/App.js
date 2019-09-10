@@ -3,14 +3,12 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 import FilterShoes from './components/FilterShoes'
-import { BrowserRouter, Route, Switch} from 'react-router-dom'
-import {  BrowserRouter,Route} from 'react-router-dom'
+import {BrowserRouter,Route} from 'react-router-dom'
 import LogIn from './components/LogIn'
 import Home from './components/Home'
 import SignUp from './components/SignUp';
 import Favorite from './components/Favorite'
 import Cart from './components/Cart'
-
 
 class App extends React.Component  {
   
@@ -22,9 +20,9 @@ class App extends React.Component  {
 
       favorites: [],
       cart: []
-
     }
   }
+
   componentDidMount() {
     fetch("http://localhost:3000/shoes")
     .then(res => res.json())
@@ -57,10 +55,7 @@ class App extends React.Component  {
       favorites: [...this.state.favorites, favorite],
     })
     // debugger
- 
-
   }
-
 
   addCart = (cart) => {
     this.setState({
@@ -74,14 +69,12 @@ class App extends React.Component  {
       favorites:  this.state.favorites.filter(f => f != favorite)
 
     })
-
   }
 
   deletefromCart = (cart) => {
     this.setState({
       cart: this.state.cart.filter(c=>c !=cart)
     })
-
 
   }
   
@@ -93,13 +86,7 @@ class App extends React.Component  {
 
         <div>
         <NavBar/>
-          {/* <Route exact path='/' component={Home}/> */}
-          {/* // <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/> */}
-          {/* <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/> */}
-          {/* <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/> */}
-
-
-
+       
           <FilterShoes filterShoes={this.filterShoes}/>
      
           <Route exact path='/' component={Home}/>
@@ -123,18 +110,12 @@ class App extends React.Component  {
               addCart={this.addCart}
               deletefromFavorite={this.deletefromFavorite}/>}/>
 
+
           <Route path='/cart' render={()=> 
-            <Cart
-            cart={this.state.cart}
-            addCart={this.addCart}
-            deletefromCart={this.deletefromCart}/>}/>
-
-          </nav>
-
-
-        
-
-       
+          <Cart
+          cart={this.state.cart}
+          addCart={this.addCart}
+          deletefromCart={this.deletefromCart}/>}/>
       </div>
       </BrowserRouter>
         
