@@ -36,12 +36,6 @@ export default class Login extends React.Component{
             // })
         }
     }
-
-    // handelClick = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }
         
 
     render(){
