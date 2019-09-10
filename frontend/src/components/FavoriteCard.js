@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class ShoeCard extends React.Component {
+export default class FavoriteCard extends React.Component {
     render() {
         return(
             // <div className="card">
@@ -14,7 +14,7 @@ export default class ShoeCard extends React.Component {
                     <p className="card-text text-secondary"> Category: {this.props.shoe.category}</p>
                     <p className="card-text text-secondary"> Price: ${this.props.shoe.price}</p>
 
-                    <button type="button" className="btn btn-outline-secondary" onClick={() => this.props.addFavorite(this.props.shoe)}>Favorite</button>
+                    <button type="button" className="btn btn-outline-secondary"onClick={()=>this.props.deletefromFavorite(this.props.shoe)}>Remove</button>
                     <button type="button" className="btn btn-outline-secondary" onClick={()=> this.props.addCart(this.props.shoe)}>Add to Cart</button>
 
 
@@ -30,6 +30,3 @@ export default class ShoeCard extends React.Component {
         )
     }
 }
-
-
-// onClick={() => this.props.addFavorite(this.props.all)}

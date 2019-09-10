@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-
+// import {BrowserRouter}
 import {  BrowserRouter,Route} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 import Login from './components/LogIn'
@@ -13,6 +13,7 @@ import SignUp from './components/SignUp';
 import Favorite from './components/Favorite'
 import Cart from './components/Cart'
 import Footer from './components/Footer'
+
 
 
 
@@ -49,26 +50,59 @@ class App extends React.Component  {
 
   }
 
+  addCart = (cart) => {
+    this.setState({
+      cart: [...this.state.cart, cart]
+    })
+
+  }
+
+  deletefromFavorite = (favorite) => {
+    this.setState({
+      favorites:  this.state.favorites.filter(f => f != favorite)
+
+    })
+
+  }
+
+  deletefromCart = (cart) => {
+    this.setState({
+      cart: this.state.cart.filter(c=>c !=cart)
+    })
+
+  }
+
   
   render() {
     return (
 
       <BrowserRouter>
-      <div>
+        <div>
         <NavBar/>
+
 
      <nav className="nav-header">
           <Route exact path='/' component={Home}/>
-          <Route path='/shoes' render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavorite={this.addFavorite}/>}/>
+          <Route path='/shoes' render={() => 
+            <ShoeContainer 
+              displayShoes={this.state.displayShoes} 
+              addFavorite={this.addFavorite}
+              addCart={this.addCart}/>}/>
           <Route path='/signup' render={()=> <SignUp/>}/>
           <Route path='/login' render={()=> <Login/>}/>
 
           <Route path= '/favorites' render={() => 
             <Favorite 
               favorites ={this.state.favorites}
-              addFavorite={this.addFavorite}/>}/>
+              addFavorite={this.addFavorite}
+              addCart={this.addCart}
+              deletefromFavorite={this.deletefromFavorite}/>}/>
 
-          <Route path='/cart' render={()=> <Cart/>}/>
+          <Route path='/cart' render={()=> 
+            <Cart
+            cart={this.state.cart}
+            addCart={this.addCart}
+            deletefromCart={this.deletefromCart}/>}/>
 
           </nav>
 
