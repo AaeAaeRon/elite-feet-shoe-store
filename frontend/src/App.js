@@ -112,7 +112,6 @@ class App extends React.Component  {
           <Route path= '/favorites' render={(routerProps) => 
 
             <Favorite 
-              {...routerProps} 
               favorites ={this.state.favorites}
 
               addFavorite={this.addFavorite}

@@ -4,6 +4,9 @@ export default class FilterShoes extends React.Component {
     render() {
         return(
           <div style={{padding: 10, fontSize: 12, textAlign: "center"}}>
+          <br>
+            
+          </br>
             <p>Choose type of shoe</p>
             <select value={this.props.value} onChange={(e) => this.props.filterShoes(e.target.value)}>
               <option value="All">All</option> 
