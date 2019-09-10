@@ -3,7 +3,7 @@ import {Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
 import Login from './LogIn'
 import ShoeContainer from './ShoeContainer'
-import FavShoes from './FavShoes'
+// import FavShoes from './FavShoes'
 import {Link} from 'react-router-dom'
 
 

@@ -2,8 +2,8 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-import FavShoes from './components/FavShoes'
 import FilterShoes from './components/FilterShoes'
+import SortShoes from './components/SortShoes'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 // import {LogIn} from './components/LogIn'
@@ -19,7 +19,6 @@ class App extends React.Component  {
       displayShoes: [],
       everyShoes: [],
       favoriteShoes: [],
-      delShoes: [],
 
     }
   }
@@ -54,6 +53,18 @@ class App extends React.Component  {
       })
     }
   }
+
+  sortByPrice = () => {
+    this.setState({
+      displayShoes: this.state.shoes.sort((a,b) => a.price > b.price ? 1 : -1)
+    })
+  }
+
+  sortByAlpha = () => {
+    this.setState({
+      displayShoes: this.state.shoes.sort((a,b) => a.name > b.name ? 1 : -1)
+    })
+  }
       
 
   dltFavoriteShoes = all => {
@@ -71,8 +82,9 @@ class App extends React.Component  {
             <NavBar favoriteShoes={this.state.favoriteShoes} />
           </header>
           <FilterShoes filterShoes={this.filterShoes}/>
+          <SortShoes sortByPrice={this.sortByPrice} sortByAlpha={this.sortByAlpha}/>
           <Switch>
-            <Route path="/favorites" render={(routeProps) => <FavShoes {...routeProps} favoriteShoes={this.state.favoriteShoes}/>}/>
+            {/* <Route path="/favorites" render={(routeProps) => <FavShoes {...routeProps} favoriteShoes={this.state.favoriteShoes}/>}/> */}
             <Route path="/shoes" render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavoriteShoes={this.addFavoriteShoes}/>}/>
             {/* <Route exact path='/' component ={Home} /> */}
             {/* <Route path='/login' component={LogIn} /> */}
