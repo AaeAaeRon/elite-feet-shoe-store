@@ -94,8 +94,6 @@ export default class NavBar extends React.Component {
                 
                    
                     <Navbar.Toggle aria-controls ="basic-navbar-nav"/>
-
-
             </div>
         )
         

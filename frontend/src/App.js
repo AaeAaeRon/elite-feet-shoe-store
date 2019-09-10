@@ -2,12 +2,7 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-<<<<<<< HEAD
-import {  BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-// import {Container} from 'react-bootstrap'
-=======
 import {BrowserRouter, Route} from 'react-router-dom'
->>>>>>> master
 import LogIn from './components/LogIn'
 import Home from './components/Home'
 import SignUp from './components/SignUp';
@@ -67,18 +62,6 @@ class App extends React.Component  {
   render() {
     return (
 
-<<<<<<< HEAD
-      <Router>
-        <div>
-          <NavBar/>
-          <Route exact path='/' component={Home}/>
-          <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/>
-          <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/>
-          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
-
-        </div>
-      </Router>
-=======
       <BrowserRouter>
 
         <div>
@@ -106,7 +89,6 @@ class App extends React.Component  {
           deletefromCart={this.deletefromCart}/>}/>
       </div>
       </BrowserRouter>
->>>>>>> master
         
     );
   }
