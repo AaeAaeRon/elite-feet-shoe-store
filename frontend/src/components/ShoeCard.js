@@ -1,12 +1,15 @@
 import React from 'react'
 
+
 export default class ShoeCard extends React.Component {
     
     render() {
         console.log(this.props)
         return(
             // <div className="card">
+
             <div className="col-lg-3 d-flex align-items-stretch"> 
+
             <div className="card text-center">
                 <img className="card-img-top" src={this.props.shoe.img_url} alt="shoes">
 

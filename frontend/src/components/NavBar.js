@@ -1,9 +1,14 @@
 import React from 'react'
 import {Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
+
+import Login from './LogIn'
+import ShoeContainer from './ShoeContainer'
+import {Link} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaAlignRight } from "react-icons/fa";
+
 
 export default class NavBar extends React.Component {
 
@@ -43,6 +48,7 @@ export default class NavBar extends React.Component {
         return(
             <div>
                 <Styles>
+
                     <Navbar expand="lg" fixed="top">
                     <Navbar.Brand>  <Link to="/"> Home </Link></Navbar.Brand>
                     <Navbar.Brand>  <Link to="/shoes">Shoes </Link> </Navbar.Brand>
@@ -90,12 +96,9 @@ export default class NavBar extends React.Component {
                     
                     </Navbar>
                 </Styles>
-                
-                
+               
                    
                     <Navbar.Toggle aria-controls ="basic-navbar-nav"/>
-
-
             </div>
         )
         
