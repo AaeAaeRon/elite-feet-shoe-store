@@ -8,6 +8,7 @@ import Cart from './Cart'
 export default class ShoeContainer extends React.Component {
 
     render() {
+        console.log(this.props)
         return(
         <div class="container-fluid mt-4">
 

@@ -1,6 +1,7 @@
 import React from 'react'
-import {Nav, Navbar, NavbarBrand, Container, NavbarHeader} from 'react-bootstrap'
+import {Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
+
 import Login from './LogIn'
 
 import Home from './Home'
@@ -12,11 +13,8 @@ import {Link} from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaAlignRight } from "react-icons/fa";
 
-
-
-
-
 export default class NavBar extends React.Component {
+
 
 
     state={
@@ -29,6 +27,7 @@ export default class NavBar extends React.Component {
             display: !this.state.display
         })
     }
+
 
     handleToggle = () => {
         this.setState({isOpen:!this.state.isOpen})
@@ -91,11 +90,6 @@ export default class NavBar extends React.Component {
 
                     </ul>
 
-
-
-
-
-
                         {/* <Navbar.Brand href="/">Shoe Store</Navbar.Brand> */}
 
                         {/* <Navbar.Brand onClick={this.openLogin} href="/login">Login</Navbar.Brand> */}
@@ -105,13 +99,17 @@ export default class NavBar extends React.Component {
                     </Navbar>
                 </Styles>
                 
-                {/* <SignUp /> */}
 
                 {this.state.display
                     ? <Login />
                     : null
                 }
                 
+                   
+                    <Navbar.Toggle aria-controls ="basic-navbar-nav"/>
+               
+             
+
             </div>
         )
         

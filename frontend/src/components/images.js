@@ -1,6 +1,3 @@
-import React from 'react'
-import {Gallery, GalleryImage} from 'react-gesture-gallery'
-
 const images = [
     "https://dehayf5mhw1h7.cloudfront.net/wp-content/uploads/sites/150/2017/10/06100003/486875.jpg",
     "https://media.gq.com/photos/5ccc6533e352110ce3a7b400/16:9/w_1600%2Cc_limit/White-Sneakers-GQ-05032019_16x9.jpg",

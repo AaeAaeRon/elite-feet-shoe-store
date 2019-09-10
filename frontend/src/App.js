@@ -5,7 +5,7 @@ import ShoeContainer from './components/ShoeContainer'
 // import {BrowserRouter}
 import {  BrowserRouter,Route} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
-import Login from './components/LogIn'
+import LogIn from './components/LogIn'
 import Home from './components/Home'
 import SignUp from './components/SignUp';
 // import NoMatch from './components/NoMatch'
@@ -79,17 +79,23 @@ class App extends React.Component  {
       <BrowserRouter>
         <div>
         <NavBar/>
+          {/* <Route exact path='/' component={Home}/> */}
+          {/* // <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/> */}
+          {/* <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/> */}
+          {/* <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/> */}
+
 
 
      <nav className="nav-header">
           <Route exact path='/' component={Home}/>
-          <Route path='/shoes' render={() => 
+          <Route path='/shoes' render={(routerProps) => 
             <ShoeContainer 
               displayShoes={this.state.displayShoes} 
               addFavorite={this.addFavorite}
-              addCart={this.addCart}/>}/>
-          <Route path='/signup' render={()=> <SignUp/>}/>
-          <Route path='/login' render={()=> <Login/>}/>
+              addCart={this.addCart}
+              {...routerProps}/>}/>
+          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
+          <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
 
           <Route path= '/favorites' render={() => 
             <Favorite 
@@ -113,7 +119,7 @@ class App extends React.Component  {
 
       </BrowserRouter>
 
-      
+  
         
     );
   }
@@ -121,4 +127,4 @@ class App extends React.Component  {
 }
 
 export default App;
-{/* <ShoeContainer displayShoes={this.state.displayShoes}/> */}
+
