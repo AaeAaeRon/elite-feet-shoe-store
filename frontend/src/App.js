@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-import FavShoes from './components/FavShoes'
 import FilterShoes from './components/FilterShoes'
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
-// import {Container} from 'react-bootstrap'
-// import {LogIn} from './components/LogIn'
-// import {NoMatch} from './components/NoMatch'
+import {  BrowserRouter,Route} from 'react-router-dom'
+import LogIn from './components/LogIn'
+import Home from './components/Home'
+import SignUp from './components/SignUp';
+import Favorite from './components/Favorite'
+import Cart from './components/Cart'
 
 
 class App extends React.Component  {
@@ -17,14 +19,13 @@ class App extends React.Component  {
     this.state = {
       shoes: [],
       displayShoes: [],
-      everyShoes: [],
-      favoriteShoes: [],
-      delShoes: [],
+
+      favorites: [],
+      cart: []
 
     }
   }
   componentDidMount() {
-    // shoeUrl = "http://localhost:3000/shoes" 
     fetch("http://localhost:3000/shoes")
     .then(res => res.json())
     .then(shoes => {
@@ -35,12 +36,7 @@ class App extends React.Component  {
     })
   }
 
-  addFavoriteShoes = all => {
-    this.setState({
-      everyShoes: [...this.state.everyShoes,all], 
-      favoriteShoes: [...this.state.everyShoes,all]
-    })
-  }
+
 
   filterShoes = (e) => {
     if (e === "All") {
@@ -56,34 +52,96 @@ class App extends React.Component  {
   }
       
 
-  dltFavoriteShoes = all => {
-    // let dlt = this.state.everyShoes.filter(s => s !== all)
+  addFavorite = (favorite) => {
     this.setState({
-      everyShoes: this.state.everyShoes.filter(s => s !== all)
+      favorites: [...this.state.favorites, favorite],
     })
+    // debugger
+ 
+
+  }
+
+
+  addCart = (cart) => {
+    this.setState({
+      cart: [...this.state.cart, cart]
+    })
+
+  }
+
+  deletefromFavorite = (favorite) => {
+    this.setState({
+      favorites:  this.state.favorites.filter(f => f != favorite)
+
+    })
+
+  }
+
+  deletefromCart = (cart) => {
+    this.setState({
+      cart: this.state.cart.filter(c=>c !=cart)
+    })
+
+
   }
   
   render() {
     return (
-      <BrowserRouter>
-        <div>
-          <header className="App-header">
-            <NavBar favoriteShoes={this.state.favoriteShoes} />
-          </header>
-          <FilterShoes filterShoes={this.filterShoes}/>
-          <Switch>
-            <Route path="/favorites" render={(routeProps) => <FavShoes {...routeProps} favoriteShoes={this.state.favoriteShoes}/>}/>
-            <Route path="/shoes" render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavoriteShoes={this.addFavoriteShoes}/>}/>
-            {/* <Route exact path='/' component ={Home} /> */}
-            {/* <Route path='/login' component={LogIn} /> */}
-            {/* <Route component ={NoMatch}/> */}
-          </Switch>
 
-        </div>
+
+      <BrowserRouter>
+
+        <div>
+        <NavBar/>
+          {/* <Route exact path='/' component={Home}/> */}
+          {/* // <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/> */}
+          {/* <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/> */}
+          {/* <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/> */}
+
+
+
+          <FilterShoes filterShoes={this.filterShoes}/>
+     
+          <Route exact path='/' component={Home}/>
+
+          <Route path='/shoes' render={(routerProps) => 
+            <ShoeContainer 
+              displayShoes={this.state.displayShoes} 
+              addFavorite={this.addFavorite}
+              addCart={this.addCart}
+              {...routerProps}/>}/>
+          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
+          <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
+
+          <Route path= '/favorites' render={() => 
+
+            <Favorite 
+              {...routerProps} 
+              favorites ={this.state.favorites}
+
+              addFavorite={this.addFavorite}
+              addCart={this.addCart}
+              deletefromFavorite={this.deletefromFavorite}/>}/>
+
+          <Route path='/cart' render={()=> 
+            <Cart
+            cart={this.state.cart}
+            addCart={this.addCart}
+            deletefromCart={this.deletefromCart}/>}/>
+
+          </nav>
+
+
+        
+
+       
+      </div>
       </BrowserRouter>
+        
+
     );
   }
   
 }
-
 export default App;
+

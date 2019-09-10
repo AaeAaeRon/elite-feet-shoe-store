@@ -1,49 +1,38 @@
-/* .App {
-  text-align: center;
+:root {
+  --primaryColor: #af9a7d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #cfcfcf;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 3px;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  
+  
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 .App {
   margin: 0% 5% 0% 5%;
   text-align: center;
  
 } 
 
+a { 
+  color: rgb(172, 170, 170);
+}
+a:hover {
+   color: rgb(172, 170, 170)
+}
+
+
 .container{
   display: grid;
 
+}
 
-
-
+.cart{
+  text-align: right;
 
 }
 body {
@@ -53,9 +42,12 @@ body {
 .card {
 
   width: 20rem;
-  margin: 2rem;
-
+  margin: 1.5rem;
+  
 }
+/* .card:last-of-type {
+  margin-right: 0;
+} */
 .card:hover{
 
   box-shadow: 5px 10px 20px 1px rgba(red, green, blue, alpha) !important
@@ -63,6 +55,7 @@ body {
 
 .card-body{
   padding: 3rem 0 !important;
+
 
 }
 
@@ -81,8 +74,62 @@ body {
 }
 
 .card-img-top:hover{
-  transform:scale(1.8)
+  transform:scale(1.2)
 }
+
+.nav-btn{
+  /* background: transparent; */
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+}
+
+.nav-links{
+  height: 0;
+  overflow: hidden;
+  transition: var(--mainTransition);
+  list-style-type: none;
+
+
+}
+.show-nav {
+  height: 100px;
+}
+
+.services {
+  padding: 5rem 0;
+}
+.services {
+  background: var(--darkGrey);
+  text-align: center;
+}
+.services-center {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
+
+.service span {
+  display: inline-block;
+  color: var(--primaryColor);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.services h6 {
+  letter-spacing: var(--mainSpacing);
+}
+.services p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+
+
 
 
 
