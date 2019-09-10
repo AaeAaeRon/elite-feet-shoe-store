@@ -24,6 +24,8 @@ export default class SignUp extends React.Component {
                     }
                 })
             })
+            .then(res=> res.json())
+            .then(console.log)
             this.clearForm()
             this.props.history.push('/')
         }

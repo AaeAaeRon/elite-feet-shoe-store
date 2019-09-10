@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-
 import {  BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 import LogIn from './components/LogIn'
@@ -23,7 +22,6 @@ class App extends React.Component  {
     }
   }
   componentDidMount() {
-    // shoeUrl = "http://localhost:3000/shoes" 
     fetch("http://localhost:3000/shoes")
     .then(res => res.json())
     .then(shoes => {
@@ -38,14 +36,14 @@ class App extends React.Component  {
     return (
 
       <Router>
-      <div>
-        <NavBar/>
+        <div>
+          <NavBar/>
           <Route exact path='/' component={Home}/>
           <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/>
           <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/>
           <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
 
-      </div>
+        </div>
       </Router>
         
     );
