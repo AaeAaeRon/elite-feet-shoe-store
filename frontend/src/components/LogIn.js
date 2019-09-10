@@ -30,7 +30,7 @@ export default class Login extends React.Component{
             .then(res => res.json())
             .then(console.log)
             this.clearForm()
-            this.props.history.push('/')
+            // this.props.history.push('/')
             // .then(data => {
             //     localStorage.token = data.token
             // })
