@@ -23,14 +23,6 @@ class CartProduct extends Component {
     </button>
     </div>`
 
-    // function addIncrement(){
-    //   var value = parseInt(document.querySelectorAll("input")[0].value)
-    //   value = isNaN(value) ? 0 : value;
-    //   value++;
-    //   document.querySelectorAll('input').value = value;
-
-    // }
-
 
       
       return(
@@ -48,8 +40,13 @@ class CartProduct extends Component {
                     <div class="py-2 text-uppercase">Quantity</div>
                 </th>
                 <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Subtotal</div>
+                </th>
+                <th scope="col" class="border-0 bg-light">
                     <div class="py-2 text-uppercase">Remove</div>
                 </th>
+              
+                
 
               </tr>
             </thead>
@@ -70,14 +67,15 @@ class CartProduct extends Component {
               <td class="border-0 align-middle"><strong>${this.props.shoe.price}</strong></td>
               <td class="align-middle"><strong> 
                 <button class="plus-btn" type="button" name="button" >
-                  <img src= {<FaPlusSquare/>} alt="" ></img>
+                  +
                 </button>
-                 <input type="text" name="name" value="1"></input>
+                <span>{this.props.shoe.quantity}</span>
                 <button class="minus-btn" type="button" name="button">
-                  <img src={<FaRegMinusSquare/>} alt="" ></img>
+                  -
                 </button> 
           </strong> 
             </td>
+            <td class="align-middle"><strong>${this.props.shoe.price * this.props.shoe.quantity}</strong></td>
 
               <td class="align-middle"><button class="text-dark" onClick={() => this.props.deletefromCart(this.props.shoe)} ><FaTrashAlt/></button></td>
 
