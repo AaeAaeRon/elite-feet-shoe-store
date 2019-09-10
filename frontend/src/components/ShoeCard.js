@@ -16,6 +16,7 @@ export default class ShoeCard extends React.Component {
                     <p className="card-text text-secondary"> Category: {this.props.shoe.category}</p>
                     <p className="card-text text-secondary"> Price: ${this.props.shoe.price}</p>
 
+
                     <button type="button" className="btn btn-outline-secondary" onClick={() => this.props.addFavorite(this.props.shoe)}>Favorite</button>
                     <button type="button" className="btn btn-outline-secondary" onClick={()=> this.props.addCart(this.props.shoe)}>Add to Cart</button>
 
