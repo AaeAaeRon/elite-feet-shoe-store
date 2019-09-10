@@ -1,10 +1,8 @@
 import React from 'react'
 import {Nav, Navbar} from 'react-bootstrap'
 import styled from 'styled-components'
-
 import Login from './LogIn'
 import ShoeContainer from './ShoeContainer'
-import {Link} from 'react-router-dom'
 import {Link} from 'react-router-dom'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaAlignRight } from "react-icons/fa";
