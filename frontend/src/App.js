@@ -3,7 +3,8 @@ import './App.css';
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 import FavShoes from './components/FavShoes'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import FilterShoes from './components/FilterShoes'
+import { BrowserRouter, Route, Switch} from 'react-router-dom'
 // import {Container} from 'react-bootstrap'
 // import {LogIn} from './components/LogIn'
 // import {NoMatch} from './components/NoMatch'
@@ -18,7 +19,7 @@ class App extends React.Component  {
       displayShoes: [],
       everyShoes: [],
       favoriteShoes: [],
-      delShoes: []
+      delShoes: [],
 
     }
   }
@@ -41,6 +42,20 @@ class App extends React.Component  {
     })
   }
 
+  filterShoes = (e) => {
+    if (e === "All") {
+      this.setState({
+        displayShoes: this.state.shoes
+      })
+    } 
+    else {
+      this.setState({
+        displayShoes: this.state.shoes.filter(aShoe => aShoe.category === e)
+      })
+    }
+  }
+      
+
   dltFavoriteShoes = all => {
     // let dlt = this.state.everyShoes.filter(s => s !== all)
     this.setState({
@@ -50,25 +65,22 @@ class App extends React.Component  {
   
   render() {
     return (
-      <div>
-        <Router>
+      <BrowserRouter>
+        <div>
+          <header className="App-header">
+            <NavBar favoriteShoes={this.state.favoriteShoes} />
+          </header>
+          <FilterShoes filterShoes={this.filterShoes}/>
           <Switch>
+            <Route path="/favorites" render={(routeProps) => <FavShoes {...routeProps} favoriteShoes={this.state.favoriteShoes}/>}/>
+            <Route path="/shoes" render={() => <ShoeContainer displayShoes={this.state.displayShoes} addFavoriteShoes={this.addFavoriteShoes}/>}/>
             {/* <Route exact path='/' component ={Home} /> */}
             {/* <Route path='/login' component={LogIn} /> */}
             {/* <Route component ={NoMatch}/> */}
           </Switch>
 
-      </Router>
- 
-        <header className="App-header">
-          <NavBar/>
-        </header>
-
-        <ShoeContainer displayShoes={this.state.displayShoes} addFavoriteShoes={this.addFavoriteShoes}/>
-        <FavShoes favoriteShoes={this.state.favoriteShoes} dltFavoriteShoes={this.dltFavoriteShoes}/>
-
-        
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
   
