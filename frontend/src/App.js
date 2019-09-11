@@ -28,7 +28,8 @@ class App extends React.Component  {
       displayShoes: [],
       favorites: [],
       cart: [],
-      selectedShoe: null
+      selectedShoe: null,
+      total: []
 
     }
   }
@@ -71,7 +72,8 @@ class App extends React.Component  {
 
   addCart = (cart) => {
     this.setState({
-      cart: [...this.state.cart, cart]
+      cart: [...this.state.cart, cart],
+      total:cart 
     })
     
 
@@ -121,12 +123,13 @@ class App extends React.Component  {
 
      <nav className="nav-header">
           <Route exact path='/' component={Home}/>
-          <Route path='/shoes' render={(routerProps) => 
+          <Route path={'/shoes/:id'} render={(routerProps) => 
             <ShoeContainer 
               displayShoes={this.state.displayShoes} 
               addFavorite={this.addFavorite}
               addCart={this.addCart}
               viewShoe={this.viewShoe}
+              filterShoes={this.filterShoes}
               {...routerProps}/>}/>
 
           {/* <Route
@@ -163,6 +166,8 @@ class App extends React.Component  {
 
           <Route path='/cart' render={()=> 
             <Cart
+            displayShoes={this.state.displayShoes} 
+
             cart={this.state.cart}
             addCart={this.addCart}
             deletefromCart={this.deletefromCart}

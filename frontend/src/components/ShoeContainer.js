@@ -13,13 +13,15 @@ export default class ShoeContainer extends React.Component {
 
         return(
         <div class="container-fluid mt-4">
-            <FilterShoes filterShoes={this.filterShoes}/>
+            <FilterShoes filterShoes={this.props.filterShoes}/>
 
 
 
             <div className="row justify-content-center">
                         
                 {this.props.displayShoes.map(shoe =>  (<ShoeCard shoe={shoe} key={shoe.id} addFavorite={this.props.addFavorite} addCart={this.props.addCart} viewShoe={this.props.viewShoe}/> )) }
+
+                
         </div>
     </div>
             
