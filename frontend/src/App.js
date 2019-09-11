@@ -4,7 +4,7 @@ import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
 import FilterShoes from './components/FilterShoes'
 import SortShoes from './components/SortShoes'
-import {BrowserRouter,Route} from 'react-router-dom'
+import {BrowserRouter,Route,Switch} from 'react-router-dom'
 import LogIn from './components/LogIn'
 import Home from './components/Home'
 import SignUp from './components/SignUp';
@@ -92,20 +92,25 @@ class App extends React.Component  {
 
         <div>
         <NavBar/>
+        <Switch>
        
           {/* <FilterShoes filterShoes={this.filterShoes}/> */}
+          {/* <FilterShoes filterShoes={this.FilterShoes}/>
+            <SortShoes sortByPrice={this.sortByPrice} sortByAlpha={this.sortByAlpha}/>  */}
      
-          <Route exact path='/' component={Home}/>
+          <Route exact path='/' component={Home}/> 
 
-          <Route path='/shoes' render={(routerProps) => 
+          <Route path='/shoes' render={(routerProps) =>
+            
             <ShoeContainer 
               filterShoes={this.filterShoes}
-              sortByPrice={this.sortByPrice}
+              sortByPrice={this.sortByPrice} 
               sortByAlpha={this.sortByAlpha} 
               displayShoes={this.state.displayShoes} 
               addFavorite={this.addFavorite}
               addCart={this.addCart}
-              {...routerProps}/>}/>
+              {...routerProps}/> 
+            }/>
           <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
           <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
 
@@ -124,6 +129,7 @@ class App extends React.Component  {
           cart={this.state.cart}
           addCart={this.addCart}
           deletefromCart={this.deletefromCart}/>}/>
+          </Switch>
       </div>
       </BrowserRouter>
         
