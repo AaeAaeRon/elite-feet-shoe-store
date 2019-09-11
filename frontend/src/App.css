@@ -126,8 +126,37 @@ body {
   width: 80%;
   margin: 0 auto;
 }
+#order-bar{
+  position: relative;
+  right: -1000x;
+  box-shadow: 3px 3px 5px 6px #ccc;
+
+}
+
+#cart{
+  float:right;
+  
+}
+
+#shoe-card{
+  box-shadow: 3px 3px 5px 6px #ccc;
 
 
+}
+
+#store-name{
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  padding: 1px;
+  font-weight: 100;
+  position: relative;
+  background: -webkit-linear-gradient(left, black, #eee, black);
+  background: -moz-linear-gradient(left, black, #eee, black);
+  background: -ms-linear-gradient(left, black, #eee, black);
+  background: -o-linear-gradient(left, black, #eee, black);
+
+}
 
 
 
