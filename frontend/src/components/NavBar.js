@@ -65,8 +65,9 @@ export default class NavBar extends React.Component {
                     <Navbar.Brand> <Link to="/signup">Sign Up</Link></Navbar.Brand>
                     <Navbar.Brand> <Link to="/login">Login </Link></Navbar.Brand>
                     <Navbar.Brand  id="cart"> <Link to ="/cart" ><FaShoppingCart/> </Link></Navbar.Brand>
-                    <Navbar.Brand> 
+                    {/* <Navbar.Brand> 
                         <button
+                        id ="nav-btn"
                         type="button"
                         className="nav-btn"
                         onClick={this.handleToggle}> 
@@ -78,7 +79,7 @@ export default class NavBar extends React.Component {
 
                            
                 
-                    </Navbar.Brand>
+                    </Navbar.Brand> */}
 
                     <ul className={this.state.isOpen? "nav-link show-nav": "nav-links"}>
                         <li>
