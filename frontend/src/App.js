@@ -2,22 +2,15 @@ import React from 'react';
 import './App.css'; 
 import NavBar from './components/NavBar'
 import ShoeContainer from './components/ShoeContainer'
-// import {BrowserRouter}
-import {  BrowserRouter,Route} from 'react-router-dom'
-// import {Container} from 'react-bootstrap'
+import FilterShoes from './components/FilterShoes'
+import {BrowserRouter,Route} from 'react-router-dom'
 import LogIn from './components/LogIn'
 import Home from './components/Home'
 import SignUp from './components/SignUp';
-// import NoMatch from './components/NoMatch'
-
 import Favorite from './components/Favorite'
 import Cart from './components/Cart'
 import Footer from './components/Footer'
 import ShoePage from './components/ShoePage'
-
-
-
-
 
 class App extends React.Component  {
   
@@ -30,11 +23,10 @@ class App extends React.Component  {
       cart: [],
       selectedShoe: null,
       total: []
-
     }
   }
+
   componentDidMount() {
-    // shoeUrl = "http://localhost:3000/shoes" 
     fetch("http://localhost:3000/shoes")
     .then(res => res.json())
     .then(shoes => {
@@ -65,9 +57,6 @@ class App extends React.Component  {
       favorites: [...this.state.favorites, favorite],
     })
 
-    
- 
-
   }
 
   addCart = (cart) => {
@@ -78,25 +67,12 @@ class App extends React.Component  {
     
 
   }
-
-  // viewShoe = (shoe) => {
-  //   this.setState({
-  //     selectedShoe: shoe
-  //   })
-
-
-  // }
-
  
-  
-
-  
   deletefromFavorite = (favorite) => {
     this.setState({
       favorites:  this.state.favorites.filter(f => f != favorite)
 
     })
-
   }
 
   deletefromCart = (cart) => {
@@ -105,25 +81,23 @@ class App extends React.Component  {
     })
 
   }
-
   
   render() {
     return (
 
+
       <BrowserRouter>
+
         <div>
         <NavBar/>
-          {/* <Route exact path='/' component={Home}/> */}
-          {/* // <Route path='/shoes' render={(routerProps) => <ShoeContainer displayShoes={this.state.displayShoes} {...routerProps}/>}/> */}
-          {/* <Route path='/login' render={(routerProps)=> <LogIn {...routerProps} />}/> */}
-          {/* <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/> */}
 
-
-          {/* <FilterShoes filterShoes={this.filterShoes}/> */}
 
      <nav className="nav-header">
           <Route exact path='/' component={Home}/>
           <Route path={'/shoes/:id'} render={(routerProps) => 
+          <FilterShoes filterShoes={this.filterShoes}/>
+         // <Route path='/shoes' render={(routerProps) => 
+
             <ShoeContainer 
               displayShoes={this.state.displayShoes} 
               addFavorite={this.addFavorite}
@@ -158,11 +132,14 @@ class App extends React.Component  {
           <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
 
           <Route path= '/favorites' render={() => 
+
             <Favorite 
               favorites ={this.state.favorites}
+
               addFavorite={this.addFavorite}
               addCart={this.addCart}
               deletefromFavorite={this.deletefromFavorite}/>}/>
+
 
           <Route path='/cart' render={()=> 
             <Cart
@@ -175,19 +152,19 @@ class App extends React.Component  {
 
           </nav>
 
-        
+
+          <Route path='/cart' render={()=> 
+          <Cart
+          cart={this.state.cart}
+          addCart={this.addCart}
+          deletefromCart={this.deletefromCart}/>}/>
       </div>
-      <Footer/>
-
-
       </BrowserRouter>
-
-  
         
+
     );
   }
   
 }
-
 export default App;
 

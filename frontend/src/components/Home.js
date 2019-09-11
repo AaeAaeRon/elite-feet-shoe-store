@@ -21,11 +21,6 @@ const Home = () => {
             ))}
         
         </Gallery>
-
-        
-
-
-
     )
 }
 

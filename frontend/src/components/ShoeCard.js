@@ -2,16 +2,19 @@ import React from 'react'
 import { Link } from "react-router-dom";
 
 
+
 export default class ShoeCard extends React.Component {
     
     render() {
         return(
+
 
             
             <div className="col-lg-3 d-flex align-items-stretch"> 
             {/* <Link to={`/shoes/${this.props.shoe.id}`}> */}
 
             <div id= "shoe-card" className="card text-center">
+
                 <img className="card-img-top" src={this.props.shoe.img_url} alt="shoes">
 
                 </img>
