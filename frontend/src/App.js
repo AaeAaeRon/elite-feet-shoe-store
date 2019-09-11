@@ -22,7 +22,6 @@ class App extends React.Component  {
       favorites: [],
       cart: [],
       selectedShoe: null,
-      total: []
     }
   }
 
@@ -92,65 +91,40 @@ class App extends React.Component  {
         <NavBar/>
 
 
-     <nav className="nav-header">
-          <Route exact path='/' component={Home}/>
-          <Route path={'/shoes/:id'} render={(routerProps) => 
-          <FilterShoes filterShoes={this.filterShoes}/>
-         // <Route path='/shoes' render={(routerProps) => 
+        <nav className="nav-header">
+              <Route exact path='/' component={Home}/>
+              <Route path= {`/shoes`} render={(routerProps) =><ShoeContainer 
+                displayShoes={this.state.displayShoes} 
+                addFavorite={this.addFavorite}
+                addCart={this.addCart}
+                viewShoe={this.viewShoe}
+                filterShoes={this.filterShoes}
+              /> }/>
+              
 
-            <ShoeContainer 
-              displayShoes={this.state.displayShoes} 
-              addFavorite={this.addFavorite}
-              addCart={this.addCart}
-              viewShoe={this.viewShoe}
-              filterShoes={this.filterShoes}
-              {...routerProps}/>}/>
+              <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
+              <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
 
-          {/* <Route
-            path="/shoes/:id"
-            component={props => {
-              const id = props.match.params.id;
-              const shoe = this.state.shoes.find(
-                shoe => shoe.id == id
-              );
+              <Route path= '/favorites' render={() => 
 
-              if (this.state.shoes.length === 0) return <h1>Loading...</h1>;
+                <Favorite 
+                  favorites ={this.state.favorites}
 
-              if (this.state.shoes.length > 0 && shoe === undefined)
-                return <h1>Shoe not found</h1>;
-
-              return (
-                <ShoePage
-                  {...props}
-                  shoe={shoe}
+                  addFavorite={this.addFavorite}
                   addCart={this.addCart}
-                />
-              );
-            }}
-          /> */}
-          <Route path='/signup' render={(routerProps)=> <SignUp {...routerProps}/>}/>
-          <Route path='/login' render={(routerProps)=> <LogIn {...routerProps}/>}/>
-
-          <Route path= '/favorites' render={() => 
-
-            <Favorite 
-              favorites ={this.state.favorites}
-
-              addFavorite={this.addFavorite}
-              addCart={this.addCart}
-              deletefromFavorite={this.deletefromFavorite}/>}/>
+                  deletefromFavorite={this.deletefromFavorite}/>}/>
 
 
-          <Route path='/cart' render={()=> 
-            <Cart
-            displayShoes={this.state.displayShoes} 
+              <Route path='/cart' render={()=> 
+                <Cart
+                displayShoes={this.state.displayShoes} 
 
-            cart={this.state.cart}
-            addCart={this.addCart}
-            deletefromCart={this.deletefromCart}
-            />}/>
+                cart={this.state.cart}
+                addCart={this.addCart}
+                deletefromCart={this.deletefromCart}
+                />}/>
 
-          </nav>
+              </nav>
 
 
           <Route path='/cart' render={()=> 
