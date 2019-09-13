@@ -23,12 +23,7 @@ export default class ShoeCard extends React.Component {
 
                     <button type="button" className="btn btn-outline-secondary" onClick={() => this.props.addFavorite(this.props.shoe)}>Favorite</button>
                     <button type="button" className="btn btn-outline-secondary" onClick={()=> this.props.addCart(this.props.shoe)}>Add to Cart</button>
-                    {/* <button type="button" className="btn btn-outline-secondary" 
-                     onClick={() => {
-                        // event.preventDefault();
-                        // event.stopPropagation();
-                        this.props.viewShoe(this.props.shoe);
-                      }}>Details</button> */}
+                   
 
 
 

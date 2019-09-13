@@ -2,6 +2,8 @@ import React from 'react'
 import ShoeCard from './ShoeCard'
 import Cart from './Cart'
 import FilterShoes from './FilterShoes'
+import SortShoes from './SortShoes'
+
 
 
 // import './App.css';
@@ -13,7 +15,10 @@ export default class ShoeContainer extends React.Component {
 
         return(
         <div class="container-fluid mt-4">
-            <FilterShoes filterShoes={this.props.filterShoes}/>
+            <FilterShoes filterShoes={this.props.filterShoes} sortByPrice={this.props.sortByPrice} sortByAlpha={this.props.sortByAlpha}/>
+            {/* <div>             <SortShoes sortByPrice={this.props.sortByPrice} sortByAlpha={this.props.sortByAlpha}/>
+ </div> */}
+
 
 
 

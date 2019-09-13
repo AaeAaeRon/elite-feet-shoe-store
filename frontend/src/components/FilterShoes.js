@@ -1,6 +1,7 @@
   
 import React from 'react'
 
+
 export default class FilterShoes extends React.Component {
     render() {
         return(

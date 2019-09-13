@@ -100,5 +100,3 @@ class CartProduct extends Component {
 export default CartProduct
 
 
-
-    

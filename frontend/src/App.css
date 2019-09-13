@@ -77,7 +77,7 @@ body {
   transform:scale(1.2)
 }
 
-.nav-btn{
+#nav-btn{
   /* background: transparent; */
   border: none;
   cursor: pointer;
@@ -158,6 +158,10 @@ body {
 
 }
 
+#order-page{
+  margin-top: 25px;
+
+}
 
 
 

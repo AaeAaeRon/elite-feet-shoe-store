@@ -14,6 +14,8 @@ import Favorite from './components/Favorite'
 import Cart from './components/Cart'
 import Footer from './components/Footer'
 import ShoePage from './components/ShoePage'
+import Order from './components/Order'
+
 
 
 
@@ -123,7 +125,7 @@ class App extends React.Component  {
 
      <nav className="nav-header">
           <Route exact path='/' component={Home}/>
-          <Route path={'/shoes/:id'} render={(routerProps) => 
+          <Route path={'/shoes'} render={(routerProps) => 
             <ShoeContainer 
               displayShoes={this.state.displayShoes} 
               addFavorite={this.addFavorite}
@@ -174,6 +176,8 @@ class App extends React.Component  {
             />}/>
 
           </nav>
+          <Route path='/order' render={()=>
+          <Order/>}/>
 
         
       </div>
